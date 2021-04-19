@@ -10,3 +10,7 @@ class LoginPageLocators:
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 
 
+class ProductPageLocators:
+    ADD_TO_BASKET = (By.XPATH, "//button[@class=\"btn btn-lg btn-primary btn-add-to-basket\"]")
+
+
