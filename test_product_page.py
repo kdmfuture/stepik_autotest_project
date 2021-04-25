@@ -2,7 +2,6 @@ import pytest
 
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
-from .pages.locators import ProductPageLocators
 from .pages.product_page import ProductPage
 
 
@@ -26,27 +25,29 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.compare_prices()
 
 
+@pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
-    assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+    page.guest_cant_see_success_message_after_adding_product_to_basket()
 
 
 def test_guest_cant_see_success_message(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser, link)
     page.open()
-    assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+    page.guest_cant_see_success_message()
 
 
+@pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
-    assert page.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE)
+    page.message_disappeared_after_adding_product_to_basket()
 
 
 def test_guest_should_see_login_link_on_product_page(browser):
@@ -87,7 +88,7 @@ class TestUserAddToBasketFromProductPage:
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
         page.open()
-        assert page.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+        page.guest_cant_see_success_message()
 
     def test_guest_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
