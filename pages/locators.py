@@ -12,5 +12,5 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_BASKET = (By.XPATH, "//button[@class=\"btn btn-lg btn-primary btn-add-to-basket\"]")
-
+    SUCCESS_MESSAGE = (By.XPATH, "//div[@class=\"alertinner \" and contains(., \" has been added\")]")
 
