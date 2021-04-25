@@ -55,11 +55,18 @@ class BasePage:
         return True
 
     def go_to_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.REGISTRATION_LINK)
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
 
+    def go_to_registration_page(self):
+        registration_link = self.browser.find_element(*BasePageLocators.REGISTRATION_LINK)
+        registration_link.click()
+
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.REGISTRATION_LINK), "Login link is not presented"
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def should_be_registration_link(self):
+        assert self.is_element_present(*BasePageLocators.REGISTRATION_LINK), "Registration link is not presented"
 
     def go_to_basket_page(self):
         basket_page_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
