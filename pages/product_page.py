@@ -23,3 +23,4 @@ class ProductPage(BasePage):
             basket_price.append(elem.text)
         assert price.text in basket_price
 
+

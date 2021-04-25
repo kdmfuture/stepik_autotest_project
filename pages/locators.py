@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link ")
+    REGISTRATION_LINK = (By.CSS_SELECTOR, "#registration_link")
+    BASKET_BUTTON = (By.XPATH, "//a[@class=\"btn btn-default\"]")
 
 
 class LoginPageLocators:
